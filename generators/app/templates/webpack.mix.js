@@ -9,12 +9,3 @@ mix.browserSync({
   serveStatic: ['./'],
   files: ['./public']
 });
-
-// mix.browserSync({
-//   proxy: 'https://localhost',
-//   host: 'dev.host',
-//   open: false,
-//   watchOptions: {
-//     usePolling: true
-//   }
-// });
