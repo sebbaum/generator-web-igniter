@@ -1,40 +1,91 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-const yosay = require('yosay');
+const _ = require('lodash');
+const mkdirp = require('mkdirp');
+const path = require('path');
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
     this.log(
-      yosay(
-        'Welcome to the ultimate ' + chalk.red('generator-web-igniter') + ' generator!'
-      )
+      "Let's ignite another great static website with " + chalk.blue('Web Igniter')
     );
 
-    const prompts = [
+    const questions = [
       {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        type: 'input',
+        name: 'name',
+        message: "What's the name of your website?",
+        validate: function(answer) {
+          let pass = !_.isEmpty(answer);
+          return pass ? true : 'Product/project name is required!';
+        }
       }
     ];
 
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
+    return this.prompt(questions).then(answers => {
+      this.answers = answers;
     });
   }
 
+  default() {
+    mkdirp(this.answers.name);
+    this.destinationRoot(this.destinationPath(this.answers.name));
+  }
+
   writing() {
+    const packageJson = {
+      name: this.answers.name,
+      version: '0.0.0',
+      description: '',
+      main: '',
+      scripts: {
+        dev:
+          'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
+        watch:
+          'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
+        hot:
+          'cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js',
+        production:
+          'cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js'
+      },
+      license: 'ISC'
+    };
+
+    this.fs.write('package.json', JSON.stringify(packageJson));
+    this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
+    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('webpack.mix.js'),
+      this.destinationPath('webpack.mix.js')
+    );
+    this.fs.copy(
+      this.templatePath('main.js'),
+      this.destinationPath(path.join('js', 'main.js'))
+    );
+    this.fs.copy(
+      this.templatePath('styles.scss'),
+      this.destinationPath(path.join('sass', 'styles.scss'))
+    );
+    this.fs.copy(
+      this.templatePath('logo_Pttrn_B.svg'),
+      this.destinationPath(path.join('public', 'imgs', 'logo_Pttrn_B.svg'))
     );
   }
 
   install() {
-    this.installDependencies();
+    this.npmInstall([
+      'webpack',
+      'cross-env',
+      'laravel-mix',
+      'style-loader',
+      'browser-sync',
+      'browser-sync-webpack-plugin'
+    ]);
+    this.installDependencies({ bower: false });
+  }
+
+  end() {
+    this.spawnCommandSync('npm', ['run', 'watch']);
   }
 };
