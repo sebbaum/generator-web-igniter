@@ -7,10 +7,10 @@ describe('generator-web-igniter:app', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ someAnswer: true });
+      .withPrompts({ name: 'webapp' });
   });
 
   it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+    assert.file(['index.html']);
   });
 });
