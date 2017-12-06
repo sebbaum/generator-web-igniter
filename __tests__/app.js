@@ -11,6 +11,18 @@ describe('generator-web-igniter:app', () => {
   });
 
   it('creates files', () => {
-    assert.file(['index.html']);
+    assert.file([
+      'package.json',
+      'index.html',
+      '.gitignore',
+      'webpack.mix.js',
+      'js/main.js',
+      'sass/styles.scss',
+      'public/imgs/logo_Pttrn_B.svg'
+    ]);
+  });
+
+  it('should contain values in package.json', () => {
+    assert.fileContent('package.json', /"name":"webapp"/);
   });
 });
