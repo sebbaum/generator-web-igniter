@@ -54,7 +54,7 @@ module.exports = class extends Generator {
 
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copy(
       this.templatePath('webpack.mix.js'),
       this.destinationPath('webpack.mix.js')
