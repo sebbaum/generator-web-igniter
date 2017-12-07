@@ -6,6 +6,6 @@ mix.sass('sass/styles.scss', 'public/css')
 
 
 mix.browserSync({
-  serveStatic: ['./'],
+  serveStatic: ['./public'],
   files: ['./public']
 });
