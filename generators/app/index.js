@@ -8,14 +8,14 @@ const path = require('path');
 module.exports = class extends Generator {
   prompting() {
     this.log(
-      "Let's ignite another great static website with " + chalk.blue('Web Igniter')
+      "Let's ignite another great static project with " + chalk.blue('Web Igniter')
     );
 
     const questions = [
       {
         type: 'input',
         name: 'name',
-        message: "What's the name of your website?",
+        message: "What's the name of your project?",
         validate: function(answer) {
           let pass = !_.isEmpty(answer);
           return pass ? true : 'Product/project name is required!';
