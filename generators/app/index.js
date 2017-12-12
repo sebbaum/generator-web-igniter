@@ -20,6 +20,22 @@ module.exports = class extends Generator {
           let pass = !_.isEmpty(answer);
           return pass ? true : 'Product/project name is required!';
         }
+      },
+      {
+        type: 'confirm',
+        name: 'useProxy',
+        message: 'Do you run the website in a Vagrant box?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.useProxy === true;
+        },
+        type: 'list',
+        name: 'schema',
+        message: 'Which schema do you want to use?',
+        choices: ['http', 'https'],
+        default: 'http'
       }
     ];
 
@@ -52,12 +68,32 @@ module.exports = class extends Generator {
       license: 'ISC'
     };
 
+    const localHostConfig = {
+      serveStatic: ['./public'],
+      files: ['./public']
+    };
+
+    const proxyHostConfig = {
+      proxy: this.answers.schema + '://localhost',
+      host: 'dev.host',
+      files: ['public/js/**/*.js', 'public/css/**/*.css', 'public/*.html'],
+      open: false,
+      watchOptions: {
+        usePolling: true
+      }
+    };
+
+    let browserSyncConfig = this.answers.useProxy ? proxyHostConfig : localHostConfig;
+
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
-      this.destinationPath('webpack.mix.js')
+      this.destinationPath('webpack.mix.js'),
+      {
+        browserSyncConfig: browserSyncConfig
+      }
     );
     this.fs.copy(
       this.templatePath('main.js'),

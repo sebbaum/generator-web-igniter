@@ -3,11 +3,11 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-describe('generator-web-igniter:app', () => {
+describe('generator-web-igniter:app-proxy', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ name: 'webapp' });
+      .withPrompts({ name: 'webapp', useProxy: true, schema: 'http' });
   });
 
   it('creates files', () => {
@@ -24,5 +24,27 @@ describe('generator-web-igniter:app', () => {
 
   it('should contain values in package.json', () => {
     assert.fileContent('package.json', /"name":"webapp"/);
+  });
+
+  it('should contain broxy browserSync config with https', () => {
+    assert.fileContent(
+      'webpack.mix.js',
+      '{"proxy":"http://localhost","host":"dev.host","files":["public/js/**/*.js","public/css/**/*.css","public/*.html"],"open":false,"watchOptions":{"usePolling":true}}'
+    );
+  });
+});
+
+describe('generator-web-igniter:app-local', () => {
+  beforeAll(() => {
+    return helpers
+      .run(path.join(__dirname, '../generators/app'))
+      .withPrompts({ name: 'webapp', useProxy: false });
+  });
+
+  it('should contain broxy browserSync config with https', () => {
+    assert.fileContent(
+      'webpack.mix.js',
+      'mix.browserSync({"serveStatic":["./public"],"files":["./public"]});'
+    );
   });
 });

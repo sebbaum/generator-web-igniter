@@ -5,7 +5,4 @@ mix.sass('sass/styles.scss', 'public/css')
   .copy('./index.html', 'public/index.html');
 
 
-mix.browserSync({
-  serveStatic: ['./public'],
-  files: ['./public']
-});
+mix.browserSync(<%- JSON.stringify(browserSyncConfig) %>);
