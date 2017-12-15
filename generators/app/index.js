@@ -8,18 +8,34 @@ const path = require('path');
 module.exports = class extends Generator {
   prompting() {
     this.log(
-      "Let's ignite another great static website with " + chalk.blue('Web Igniter')
+      "Let's ignite another great static project with " + chalk.blue('Web Igniter')
     );
 
     const questions = [
       {
         type: 'input',
         name: 'name',
-        message: "What's the name of your website?",
+        message: "What's the name of your project?",
         validate: function(answer) {
           let pass = !_.isEmpty(answer);
           return pass ? true : 'Product/project name is required!';
         }
+      },
+      {
+        type: 'confirm',
+        name: 'useProxy',
+        message: 'Do you run the website in a Vagrant box?',
+        default: false
+      },
+      {
+        when: function(answers) {
+          return answers.useProxy === true;
+        },
+        type: 'list',
+        name: 'schema',
+        message: 'Which schema do you want to use?',
+        choices: ['http', 'https'],
+        default: 'http'
       }
     ];
 
@@ -52,12 +68,32 @@ module.exports = class extends Generator {
       license: 'ISC'
     };
 
+    const localHostConfig = {
+      serveStatic: ['./public'],
+      files: ['./public']
+    };
+
+    const proxyHostConfig = {
+      proxy: this.answers.schema + '://localhost',
+      host: 'dev.host',
+      files: ['public/js/**/*.js', 'public/css/**/*.css', 'public/*.html'],
+      open: false,
+      watchOptions: {
+        usePolling: true
+      }
+    };
+
+    let browserSyncConfig = this.answers.useProxy ? proxyHostConfig : localHostConfig;
+
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
-    this.fs.copy(
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
-      this.destinationPath('webpack.mix.js')
+      this.destinationPath('webpack.mix.js'),
+      {
+        browserSyncConfig: browserSyncConfig
+      }
     );
     this.fs.copy(
       this.templatePath('main.js'),
@@ -74,14 +110,10 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.npmInstall([
-      'webpack',
-      'cross-env',
-      'laravel-mix',
-      'style-loader',
-      'browser-sync',
-      'browser-sync-webpack-plugin'
-    ]);
+    this.npmInstall(
+      ['cross-env', 'laravel-mix', 'browser-sync', 'browser-sync-webpack-plugin'],
+      { 'save-dev': true }
+    );
     this.installDependencies({ bower: false });
   }
 
