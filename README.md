@@ -16,6 +16,13 @@ Then generate your new project:
 yo web-igniter
 ```
 
+## Supported features
+* Webpack
+* BrowserSync
+* SASS
+* Vanilla JS
+* jquery
+
 ## Roadmap
 * Integration of frontend frameworks
 * Integratino of javascript frameworks
@@ -23,7 +30,6 @@ yo web-igniter
 * Documentation
 
 ## License
-
 Apache-2.0 © [Sebastian Baum](http://www.sebbaum.de)
 
 
