@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
-const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
+const assert = require('yeoman-assert');
 
 describe('generator-web-igniter:app-proxy', () => {
   beforeAll(() => {

@@ -5,6 +5,15 @@ const _ = require('lodash');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
+const npmDevDependencies = [
+  'cross-env',
+  'laravel-mix',
+  'browser-sync',
+  'browser-sync-webpack-plugin'
+];
+
+const npmDependencies = [];
+
 module.exports = class extends Generator {
   prompting() {
     this.log(
@@ -36,6 +45,12 @@ module.exports = class extends Generator {
         message: 'Which schema do you want to use?',
         choices: ['http', 'https'],
         default: 'http'
+      },
+      {
+        type: 'confirm',
+        name: 'installJquery',
+        message: 'Do you want to include jQuery?',
+        default: false
       }
     ];
 
@@ -86,7 +101,9 @@ module.exports = class extends Generator {
     let browserSyncConfig = this.answers.useProxy ? proxyHostConfig : localHostConfig;
 
     this.fs.write('package.json', JSON.stringify(packageJson));
-    this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'));
+    this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), {
+      installJquery: this.answers.installJquery
+    });
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
@@ -95,9 +112,12 @@ module.exports = class extends Generator {
         browserSyncConfig: browserSyncConfig
       }
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('main.js'),
-      this.destinationPath(path.join('js', 'main.js'))
+      this.destinationPath(path.join('js', 'main.js')),
+      {
+        installJquery: this.answers.installJquery
+      }
     );
     this.fs.copy(
       this.templatePath('styles.scss'),
@@ -110,10 +130,12 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.npmInstall(
-      ['cross-env', 'laravel-mix', 'browser-sync', 'browser-sync-webpack-plugin'],
-      { 'save-dev': true }
-    );
+    this.npmInstall(npmDevDependencies, { 'save-dev': true });
+    if (this.answers.installJquery) {
+      npmDependencies.push('jquery');
+    }
+    this.npmInstall(npmDependencies, { save: true });
+
     this.installDependencies({ bower: false });
   }
 

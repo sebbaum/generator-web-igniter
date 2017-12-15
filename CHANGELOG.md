@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.2.0
+* Support for jquery added
+
 ## 0.1.4
 * Fixed a bug related to laravel-mix on Windows OS: 
 [Github Issue](https://github.com/JeffreyWay/laravel-mix/issues/1126)
