@@ -49,7 +49,7 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'installJquery',
-        message: 'Do you want to include jQuery?',
+        message: 'Do you want to use jquery?',
         default: false
       }
     ];
@@ -113,7 +113,7 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copyTpl(
-      this.templatePath('main.js'),
+      this.templatePath('main.ejs'),
       this.destinationPath(path.join('js', 'main.js')),
       {
         installJquery: this.answers.installJquery
