@@ -110,14 +110,10 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.npmInstall([
-      'webpack',
-      'cross-env',
-      'laravel-mix',
-      'style-loader',
-      'browser-sync',
-      'browser-sync-webpack-plugin'
-    ]);
+    this.npmInstall(
+      ['cross-env', 'laravel-mix', 'browser-sync', 'browser-sync-webpack-plugin'],
+      { 'save-dev': true }
+    );
     this.installDependencies({ bower: false });
   }
 
