@@ -25,7 +25,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'name',
         message: "What's the name of your project?",
-        validate: function(answer) {
+        validate: answer => {
           let pass = !_.isEmpty(answer);
           return pass ? true : 'Product/project name is required!';
         }
@@ -37,7 +37,7 @@ module.exports = class extends Generator {
         default: false
       },
       {
-        when: function(answers) {
+        when: answers => {
           return answers.useProxy === true;
         },
         type: 'list',
@@ -51,6 +51,30 @@ module.exports = class extends Generator {
         name: 'installJquery',
         message: 'Do you want to use jquery?',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'gaEnabled',
+        message: 'Do you want to use Google Anaytics for tracking?',
+        default: false
+      },
+      {
+        when: answers => {
+          return answers.gaEnabled;
+        },
+        type: 'input',
+        name: 'gaTrackingID',
+        message: 'What is your Google Analytics Tracking ID?',
+        validate: answer => {
+          let pass = !_.isEmpty(answer);
+          return pass ? true : 'Google Analytics Tracking ID is required!';
+        }
+      },
+      {
+        type: 'confirm',
+        name: 'startCoding',
+        message: 'Do you want to start coding right away?',
+        default: true
       }
     ];
 
@@ -102,7 +126,9 @@ module.exports = class extends Generator {
 
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), {
-      installJquery: this.answers.installJquery
+      installJquery: this.answers.installJquery,
+      gaEnabled: this.answers.gaEnabled,
+      gaTrackingID: this.answers.gaTrackingID
     });
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copyTpl(
@@ -140,6 +166,8 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.spawnCommandSync('npm', ['run', 'watch']);
+    if (this.answers.startCoding) {
+      this.spawnCommandSync('npm', ['run', 'watch']);
+    }
   }
 };
