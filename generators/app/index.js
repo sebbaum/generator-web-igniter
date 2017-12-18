@@ -33,7 +33,7 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'useProxy',
-        message: 'Do you run the website in a Vagrant box?',
+        message: 'Do you run the website locally or in a Vagrant box?',
         default: false
       },
       {
