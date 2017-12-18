@@ -5,7 +5,20 @@
 
 	<head>
 
-		<!-- Set character encoding for the document -->
+    <% if (gaEnabled) { %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72870204-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '<%= gaTrackingID %>', { 'anonymize_ip': true });
+    </script>
+    <% } %>
+
+
+    <!-- Set character encoding for the document -->
 		<meta charset="utf-8">
 
 		<!-- Instruct Internet Explorer to use its latest rendering engine -->
@@ -70,6 +83,10 @@
 
             <% if (installJquery) { %>
             <li>jquery</li>
+            <% } %>
+
+            <% if (gaEnabled) { %>
+            <li>Google Analytics</li>
             <% } %>
 
 					</ul>
