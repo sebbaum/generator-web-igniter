@@ -7,7 +7,8 @@ const prompts = {
   name: 'webapp',
   useProxy: false,
   gaEnabled: true,
-  gaTrackingID: 'UA-fake-1234'
+  gaTrackingID: 'UA-fake-1234',
+  startCoding: false
 };
 
 describe('generator-web-igniter:app', () => {

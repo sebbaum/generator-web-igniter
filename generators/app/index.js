@@ -69,6 +69,12 @@ module.exports = class extends Generator {
           let pass = !_.isEmpty(answer);
           return pass ? true : 'Google Analytics Tracking ID is required!';
         }
+      },
+      {
+        type: 'confirm',
+        name: 'startCoding',
+        message: 'Do you want to start coding right away?',
+        default: true
       }
     ];
 
@@ -160,6 +166,8 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.spawnCommandSync('npm', ['run', 'watch']);
+    if (this.answers.startCoding) {
+      this.spawnCommandSync('npm', ['run', 'watch']);
+    }
   }
 };

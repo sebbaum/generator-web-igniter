@@ -3,7 +3,7 @@ const path = require('path');
 const helpers = require('yeoman-test');
 const assert = require('yeoman-assert');
 
-const prompts = { name: 'webapp', useProxy: false, gaEnabled: false };
+const prompts = { name: 'webapp', useProxy: false, gaEnabled: false, startCoding: false };
 
 describe('generator-web-igniter:app', () => {
   beforeAll(() => {
