@@ -98,7 +98,7 @@ module.exports = class extends Generator {
         dev:
           'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
         watch:
-          'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
+          'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
         hot:
           'cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js',
         production:
@@ -125,11 +125,15 @@ module.exports = class extends Generator {
     let browserSyncConfig = this.answers.useProxy ? proxyHostConfig : localHostConfig;
 
     this.fs.write('package.json', JSON.stringify(packageJson));
-    this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), {
-      installJquery: this.answers.installJquery,
-      gaEnabled: this.answers.gaEnabled,
-      gaTrackingID: this.answers.gaTrackingID
-    });
+    this.fs.copyTpl(
+      this.templatePath('index.html'),
+      this.destinationPath(path.join('src', 'index.html')),
+      {
+        installJquery: this.answers.installJquery,
+        gaEnabled: this.answers.gaEnabled,
+        gaTrackingID: this.answers.gaTrackingID
+      }
+    );
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
@@ -140,14 +144,14 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath('main.ejs'),
-      this.destinationPath(path.join('js', 'main.js')),
+      this.destinationPath(path.join('src', 'js', 'main.js')),
       {
         installJquery: this.answers.installJquery
       }
     );
     this.fs.copy(
       this.templatePath('styles.scss'),
-      this.destinationPath(path.join('sass', 'styles.scss'))
+      this.destinationPath(path.join('src', 'sass', 'styles.scss'))
     );
     this.fs.copy(
       this.templatePath('logo_Pttrn_B.svg'),
