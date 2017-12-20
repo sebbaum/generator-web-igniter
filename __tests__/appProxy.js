@@ -19,11 +19,11 @@ describe('generator-web-igniter:app', () => {
   it('creates files', () => {
     assert.file([
       'package.json',
-      'index.html',
+      'src/index.html',
       '.gitignore',
       'webpack.mix.js',
-      'js/main.js',
-      'sass/styles.scss',
+      'src/js/main.js',
+      'src/sass/styles.scss',
       'public/imgs/logo_Pttrn_B.svg'
     ]);
   });
