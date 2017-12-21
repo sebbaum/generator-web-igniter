@@ -26,7 +26,14 @@
   "keywords": [
     "yeoman-generator",
     "webapp",
-    "frontend"
+    "website",
+    "generator",
+    "frontend",
+    "html",
+    "CSS",
+    "SASS",
+    "jquery",
+    "browserSync"
   ],
   "devDependencies": {
     "eslint": "^4.1.0",

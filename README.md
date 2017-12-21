@@ -22,11 +22,11 @@ yo web-igniter
 * SASS
 * Vanilla JS
 * jquery
+* Google Analytics
 
 ## Roadmap
 * Integration of frontend frameworks
 * Integratino of javascript frameworks
-* Integration of google analytics
 * Documentation
 
 ## License
