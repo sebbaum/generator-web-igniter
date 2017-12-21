@@ -8,6 +8,17 @@
     "email": "seb.baum@googlemail.com",
     "url": "http://www.sebbaum.de"
   },
+  "contributors": [
+    {
+      "name": "Sebastian Baum",
+      "email": "seb.baum@googlemail.com",
+      "url": "http://www.sebbaum.de"
+    },
+    {
+      "name": "Markek",
+      "email": "marek.jurek.gebka.@gmail.com"
+    }
+  ],
   "files": [
     "generators"
   ],
