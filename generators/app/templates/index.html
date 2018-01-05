@@ -46,10 +46,10 @@
 		<link rel="stylesheet" href="css/styles.css">
 
 		<!-- Document Title -->
-		<title>FE-Boilerplate made with ❤ by Sebastian &amp; Marek for ion2s.</title>
+		<title>FE-Boilerplate made with ❤ by Sebastian &amp; Marek.</title>
 
 		<!-- Boilerplate-styles. You can delete this. -->
-		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#83b817;height:100vh}header{background-color:#fff;box-shadow:0 6px 20px 6px rgba(58,58,58,0.25);padding:1rem;color:#83b817;height:80px}main{background:url(imgs/logo_Pttrn_B.svg);background-size:200px;height:calc(100vh - 160px);padding:3rem;color:#fff;animation-name:backPttrn;animation-direction:alternate;animation-duration:10000ms;animation-iteration-count:infinite;animation-timing-function:ease-in-out}@keyframes backPttrn{0%{background-position:left top}100%{background-position:-500px -500px}}section{max-width:900px;margin-left:auto}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}div{background-color:#fff;border-radius:1rem;box-shadow:0 17px 60px -10px rgba(58,58,58,0.25);margin-top:1rem;padding:2rem;color:#83b817}div p{font-weight:bold;margin-bottom:2rem;font-size:1.8rem}ul{list-style:none}li{font-size:1.4rem;margin-bottom:1rem}footer{background-color:#fff;padding:1rem;color:#83b817;height:80px;display:flex;align-items:center;justify-content:center}</style>
+		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:calc(100vh - 80px);padding:3rem;color:#fff}.igniter-intro{margin-left:auto;max-width:900px;transform:rotate(16deg) skew(16deg,0deg) translate(0,4rem) translateZ(0)}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}div{border-radius:1rem;margin-top:1rem;padding:2rem;color:#2196ce}div p{background:#fff;display:inline-block;font-size:1.8rem;font-weight:bold;margin-bottom:2rem;padding:1rem}ul{list-style:none}ul:after{content:'';clear:both;display:table}li{background:#fff;display:inline-block;float:left;font-size:1.4rem;margin:0 1rem 1rem 0;padding:1rem;transition:150ms ease-in transform;transform:scale(1)}li:hover{transform:scale(0.95)}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}</style>
 
 	</head>		
 
@@ -58,34 +58,36 @@
 		<!-- Example Structure -->
 
 		<!-- This might be your header including the navigation for example -->
-		<header> </header>
+		<header>
+			<img src="" alt="">
+		 </header>
 
 		<!-- Your page content should go in here -->
 		<main>
 			
 			<!-- Replace or rebuild all of this content if you want -->
-			<section>				
+			<section class="igniter-intro">				
 				
 				<h1>Thanks for using web-igniter!</h1>
 
 				<div>
 					
-					<p>Your boilerplate includes</p>
+					<p>Your boilerplate includes:</p>
 
 					<ul>
 
-            <li>💪 Webpack!</li>
+            <li><span>💪 Webpack!</span></li>
 
-            <li>💪 Livereload magic!</li>
+            <li><span>💪 Livereload magic!</span></li>
 
-            <li>💪 SASS!</li>
+            <li><span>💪 SASS!</span></li>
 
             <% if (installJquery) { %>
-            <li>💪 jQuery</li>
+            <li><span>💪 jQuery</span></li>
             <% } %>
 
             <% if (gaEnabled) { %>
-            <li>💪 Google Analytics</li>
+            <li><span>💪 Google Analytics</span></li>
             <% } %>
 
 					</ul>
