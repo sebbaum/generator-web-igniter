@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.4.0
+* Redesign of frontend boilerplate
+
 ## 0.2.0
 * Support for jquery added
 
