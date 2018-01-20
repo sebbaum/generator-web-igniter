@@ -5,7 +5,7 @@ const assert = require('yeoman-assert');
 
 const prompts = {
   name: 'webapp',
-  useProxy: false,
+  environment: 'local',
   gaEnabled: true,
   gaTrackingID: 'UA-fake-1234',
   startCoding: false
