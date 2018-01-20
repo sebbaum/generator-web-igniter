@@ -31,14 +31,15 @@ module.exports = class extends Generator {
         }
       },
       {
-        type: 'confirm',
-        name: 'useProxy',
-        message: 'Do you run the website locally or in a Vagrant box?',
-        default: false
+        type: 'list',
+        name: 'environment',
+        message: 'Where do you develop your website?',
+        choices: ['local', 'proxy'],
+        default: 'local'
       },
       {
         when: answers => {
-          return answers.useProxy === true;
+          return answers.environment === 'proxy';
         },
         type: 'list',
         name: 'schema',
@@ -122,7 +123,8 @@ module.exports = class extends Generator {
       }
     };
 
-    let browserSyncConfig = this.answers.useProxy ? proxyHostConfig : localHostConfig;
+    let browserSyncConfig =
+      this.answers.environment === 'proxy' ? proxyHostConfig : localHostConfig;
 
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copyTpl(
