@@ -5,7 +5,7 @@ const assert = require('yeoman-assert');
 
 const prompts = {
   name: 'webapp',
-  useProxy: true,
+  environment: 'proxy',
   schema: 'http',
   gaEnabled: false,
   startCoding: false
