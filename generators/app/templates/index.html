@@ -7,7 +7,7 @@
 
     <% if (gaEnabled) { %>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72870204-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaTrackingID %>"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -95,6 +95,12 @@
 				</div>	
 
 			</section>
+
+      <% if (gaEnabled) { %>
+        <!-- Link tracking is done like this.
+             https://developers.google.com/analytics/devguides/collection/gtagjs/events -->
+        <!--<a href="#" onclick="gtag('event', 'click', {'event_category': 'link', 'event_label': 'dummy'});">Dummy Link</a>-->
+      <% } %>
 
 		</main>
 
