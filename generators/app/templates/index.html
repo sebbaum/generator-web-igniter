@@ -49,7 +49,39 @@
 		<title>FE-Boilerplate made with ❤ by Sebastian &amp; Marek.</title>
 
 		<!-- Boilerplate-styles. You can delete this. -->
-		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:calc(100vh - 80px);padding:3rem;color:#fff}.igniter-intro{margin-left:auto;max-width:900px;transform:rotate(16deg) skew(16deg,0deg) translate(0,4rem) translateZ(0)}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}div{border-radius:1rem;margin-top:1rem;padding:2rem;color:#2196ce}div p{background:#fff;display:inline-block;font-size:1.8rem;font-weight:bold;margin-bottom:2rem;padding:1rem}ul{list-style:none}ul:after{content:'';clear:both;display:table}li{background:#fff;display:inline-block;float:left;font-size:1.4rem;margin:0 1rem 1rem 0;padding:1rem;transition:150ms ease-in transform;transform:scale(1)}li:hover{transform:scale(0.95)}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}</style>
+		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:calc(100vh - 80px);padding:3rem;color:#fff; width:calc(100% - 300px);margin-left: auto;}.igniter-intro{margin-left:auto;height: 100vh;max-width:900px;transform:rotate(16deg) skew(16deg,0deg) translate(0,4rem) translateZ(0)}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}div{border-radius:1rem;margin-top:1rem;padding:2rem;color:#2196ce}div p{background:#fff;display:inline-block;font-size:1.8rem;font-weight:bold;margin-bottom:2rem;padding:1rem}ul{list-style:none}ul:after{content:'';clear:both;display:table}li{background:#fff;display:inline-block;float:left;font-size:1.4rem;margin:0 1rem 1rem 0;padding:1rem;transition:150ms ease-in transform;transform:scale(1)}li:hover{transform:scale(0.95)}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}
+
+			.igniter-sidebar {
+
+				border-right: 1px solid rgba(255,255,255,0.25);
+				height: 100vh;
+				left: 0;
+				padding: 2rem 0;
+				position: fixed;
+				top: 0;
+				width: 300px;
+
+			}
+
+			.igniter-sidebarAnchor {
+
+				color: #fff;
+				display: block;
+				padding: 0.8rem 2rem;
+				text-decoration: none;
+				text-shadow: 0px 2px 2px rgba(58,58,58,0);
+				transition: 150ms ease-in , text-shadow;
+
+			}
+
+			.igniter-sidebarAnchor:hover {
+
+				background: linear-gradient(to right, rgba(255,255,255,0.25), rgba(255,255,255,0) );
+				text-shadow: 0px 2px 2px rgba(58,58,58,0.5);
+
+			}
+
+	</style>
 
 	</head>		
 
@@ -57,10 +89,22 @@
 		
 		<!-- Example Structure -->
 
-		<!-- This might be your header including the navigation for example -->
-		<header>
+		<!-- This might be your header and / or navigation for example -->
+		<nav class="igniter-sidebar">
 			
-		 </header>
+			<a href="#typography" class="igniter-sidebarAnchor">
+				Typography
+			</a>
+
+			<a href="#buttons" class="igniter-sidebarAnchor">
+				Buttons
+			</a>
+
+			<a href="forms" class="igniter-sidebarAnchor">
+				Forms
+			</a>
+
+		</nav>
 
 		<!-- Your page content should go in here -->
 		<main>
@@ -76,25 +120,42 @@
 
 					<ul>
 
-            <li><span>💪 Webpack!</span></li>
+			            <li><span>💪 Webpack!</span></li>
 
-            <li><span>💪 Livereload magic!</span></li>
+			            <li><span>💪 Livereload magic!</span></li>
 
-            <li><span>💪 SASS!</span></li>
+			            <li><span>💪 SASS!</span></li>
 
-            <% if (installJquery) { %>
-            <li><span>💪 jQuery</span></li>
-            <% } %>
+			            <% if (installJquery) { %>
+			            <li><span>💪 jQuery</span></li>
+			            <% } %>
 
-            <% if (gaEnabled) { %>
-            <li><span>💪 Google Analytics</span></li>
-            <% } %>
+			            <% if (gaEnabled) { %>
+			            <li><span>💪 Google Analytics</span></li>
+			            <% } %>
 
 					</ul>
 
 				</div>	
 
 			</section>
+
+			<article id="typography">
+				
+				<h1 class="headline-one">Headline H1</h1>
+
+				<h2 class="headline-two">Headline H2</h2>
+
+				<h3 class="headline-three">Headline H3</h3>
+
+				<h4 class="headline-four">Headline H4</h4>
+
+				<h5 class="headline-five">Headline H5</h5>
+
+				<h6 class="headlin">Headline H6</h6>
+
+
+			</article>
 
       <% if (gaEnabled) { %>
         <!-- Link tracking is done like this.
