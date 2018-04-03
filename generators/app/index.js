@@ -9,7 +9,8 @@ const npmDevDependencies = [
   'cross-env',
   'laravel-mix',
   'browser-sync',
-  'browser-sync-webpack-plugin'
+  'browser-sync-webpack-plugin',
+  'laravel-mix-purgecss'
 ];
 
 const npmDependencies = [];

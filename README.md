@@ -20,6 +20,7 @@ yo web-igniter
 * Webpack
 * BrowserSync
 * SASS
+* purgeCSS
 * Vanilla JS
 * jquery
 * Google Analytics
