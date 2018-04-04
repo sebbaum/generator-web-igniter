@@ -19,7 +19,7 @@ describe('generator-web-igniter:app', () => {
   it('should contain google analytics', () => {
     assert.fileContent(
       'src/index.html',
-      "gtag('config', 'UA-fake-1234', { 'anonymize_ip': true });"
+      "gtag('config', gaProperty, { 'anonymize_ip': true });"
     );
   });
 });

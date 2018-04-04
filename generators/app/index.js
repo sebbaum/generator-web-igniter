@@ -149,12 +149,16 @@ module.exports = class extends Generator {
       this.templatePath('main.ejs'),
       this.destinationPath(path.join('src', 'js', 'main.js')),
       {
-        installJquery: this.answers.installJquery
+        installJquery: this.answers.installJquery,
+        gaEnabled: this.answers.gaEnabled
       }
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('styles.scss'),
-      this.destinationPath(path.join('src', 'sass', 'styles.scss'))
+      this.destinationPath(path.join('src', 'sass', 'styles.scss')),
+      {
+        gaEnabled: this.answers.gaEnabled
+      }
     );
     this.fs.copy(
       this.templatePath('logo_Pttrn_B.svg'),
@@ -166,6 +170,9 @@ module.exports = class extends Generator {
     this.npmInstall(npmDevDependencies, { 'save-dev': true });
     if (this.answers.installJquery) {
       npmDependencies.push('jquery');
+    }
+    if (this.answers.gaEnabled) {
+      npmDependencies.push('simple-cookie-consent');
     }
     this.npmInstall(npmDependencies, { save: true });
 

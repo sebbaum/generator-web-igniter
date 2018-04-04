@@ -1,1 +1,20 @@
 // THIS IS WHERE YOU WRITE YOUR SASS MAGIC
+
+<% if (gaEnabled) { %>
+  @import '../../node_modules/simple-cookie-consent/dist/simple-cookie-consent.min.css';
+
+.c-simple-cookie-consent {
+  // Bar styles here (e.g. background-color, position, z-index)
+
+  &__policy {
+    // Message styling here (e.g. font)
+  }
+
+  &__button {
+    // Styles that apply to both the 'accept' and 'additonal button'. (e.g. background-color)
+    &--additional {
+      // Styles specifically for the 'additonal' button which override the base button styling
+    }
+  }
+}
+<% } %>

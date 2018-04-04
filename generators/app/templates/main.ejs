@@ -1,3 +1,21 @@
 <% if (installJquery) { %>
+/*
+ * Integration of jquery
+ */
 import $ from 'jquery';
+<% } %>
+
+<% if (gaEnabled) { %>
+/*
+ * Integration of a simple cookie bar.
+ */
+import SimpleCookieConsent from 'simple-cookie-consent';
+
+new SimpleCookieConsent(
+  {
+    // policyText: 'Test',
+    // barClassName: '',
+    // additionalLink: 'NOOOO',
+    // additionalLinkText: 'NOOO'
+  });
 <% } %>

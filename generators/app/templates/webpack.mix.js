@@ -11,7 +11,8 @@ mix.setPublicPath('public');
  */
 mix.sass('src/sass/styles.scss', 'public/css')
   .purgeCss({
-    enabled: true,
+
+    // enabled: true,
 
     // Your custom globs are merged with the default globs. If you need to fully replace
     // the globs, use the underlying `paths` option instead.
