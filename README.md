@@ -25,10 +25,58 @@ yo web-igniter
 * jquery
 * Google Analytics with cookie bar
 
+### Google Analytics and the cookie bar
+Here are some more information on Google Analytics (GA). 
+By default IP anonymization is activated. So it is not possibile to track the exact geo location
+of your website's visitors. In Europe this is a legal requirement. However you can deactivate IP 
+anonymization like so:
+In `src/index.html` find:
+```
+gtag('config', gaProperty, { 'anonymize_ip': true });
+```
+and set `anonymize_ip` to `false`.
+
+If GA is enabled a cookie bar is integrated automatically to your website. This is also a legal requirement in Europe.
+You can customize the behavior and the look like so:
+In `src/js/main.js`:
+```
+/*
+ * Integration of a simple cookie bar.
+ */
+import SimpleCookieConsent from 'simple-cookie-consent';
+
+new SimpleCookieConsent(
+  {
+    policyText: 'Your cookie text goes here',
+    barClassName: '',
+    additionalLink: 'privacy.html',
+    additionalLinkText: 'Privacy Policy'
+  });
+```
+The look can be edited in `src/sass/styles.scss`
+```
+@import '../../node_modules/simple-cookie-consent/dist/simple-cookie-consent.min.css';
+
+.c-simple-cookie-consent {
+  // Bar styles here (e.g. background-color, position, z-index)
+
+  &__policy {
+    // Message styling here (e.g. font)
+  }
+
+  &__button {
+    // Styles that apply to both the 'accept' and 'additonal button'. (e.g. background-color)
+    &--additional {
+      // Styles specifically for the 'additonal' button which override the base button styling
+    }
+  }
+}
+```
+For more information about the cookie bar, check [Simple Cookie Consent](https://www.npmjs.com/package/simple-cookie-consent).
+
 ## Roadmap
 * Integration of frontend frameworks
 * Integratino of javascript frameworks
-* Documentation
 
 ## License
 Apache-2.0 © [Sebastian Baum](http://www.sebbaum.de)
