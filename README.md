@@ -23,7 +23,7 @@ yo web-igniter
 * purgeCSS
 * Vanilla JS
 * jquery
-* Google Analytics
+* Google Analytics with cookie bar
 
 ## Roadmap
 * Integration of frontend frameworks

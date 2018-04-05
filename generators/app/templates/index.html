@@ -9,11 +9,24 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaTrackingID %>"></script>
     <script>
+
+      const gaId = '<%= gaTrackingID %>';
+
+      let gaProperty = '' + gaId;
+      if (!gaIsEnabled()) {
+        gaProperty = 'disabled-' + gaId;
+      }
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '<%= gaTrackingID %>', { 'anonymize_ip': true });
+      gtag('config', gaProperty, { 'anonymize_ip': true });
+
+      function gaIsEnabled() {
+        return localStorage.getItem('consent') === 'true' || false;
+      }
+
     </script>
     <% } %>
 
@@ -49,7 +62,7 @@
 		<title>FE-Boilerplate made with ❤ by Sebastian &amp; Marek.</title>
 
 		<!-- Boilerplate-styles. You can delete this. -->
-		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:calc(100vh - 80px);padding:3rem;color:#fff}.igniter-intro{margin-left:auto;max-width:900px;transform:rotate(16deg) skew(16deg,0deg) translate(0,4rem) translateZ(0)}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}div{border-radius:1rem;margin-top:1rem;padding:2rem;color:#2196ce}div p{background:#fff;display:inline-block;font-size:1.8rem;font-weight:bold;margin-bottom:2rem;padding:1rem}ul{list-style:none}ul:after{content:'';clear:both;display:table}li{background:#fff;display:inline-block;float:left;font-size:1.4rem;margin:0 1rem 1rem 0;padding:1rem;transition:150ms ease-in transform;transform:scale(1)}li:hover{transform:scale(0.95)}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}</style>
+		<style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:calc(100vh - 80px);padding:3rem;color:#fff}.igniter-intro{margin-left:auto;max-width:900px;transform:rotate(16deg) skew(16deg,0deg) translate(0,4rem) translateZ(0)}h1{color:#fff;font-size:3rem;text-align:right;margin-bottom:0}.igniter-intro div{border-radius:1rem;margin-top:1rem;padding:2rem;color:#2196ce}.igniter-intro div p{background:#fff;display:inline-block;font-size:1.8rem;font-weight:bold;margin-bottom:2rem;padding:1rem}ul{list-style:none}ul:after{content:'';clear:both;display:table}li{background:#fff;display:inline-block;float:left;font-size:1.4rem;margin:0 1rem 1rem 0;padding:1rem;transition:150ms ease-in transform;transform:scale(1)}li:hover{transform:scale(0.95)}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}</style>
 
 	</head>		
 
