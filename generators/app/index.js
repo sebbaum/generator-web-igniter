@@ -164,6 +164,10 @@ module.exports = class extends Generator {
       this.templatePath('logo_Pttrn_B.svg'),
       this.destinationPath(path.join('public', 'imgs', 'logo_Pttrn_B.svg'))
     );
+    this.fs.copy(
+      this.templatePath('robots.txt'),
+      this.destinationPath(path.join('public', 'robots.txt'))
+    );
   }
 
   install() {

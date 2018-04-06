@@ -23,7 +23,8 @@ describe('generator-web-igniter:app', () => {
       'webpack.mix.js',
       'src/js/main.js',
       'src/sass/styles.scss',
-      'public/imgs/logo_Pttrn_B.svg'
+      'public/imgs/logo_Pttrn_B.svg',
+      'public/robots.txt'
     ]);
   });
 
