@@ -74,6 +74,12 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
+        name: 'useImprint',
+        message: 'Do you want to generate a basic imprint (Impressum)?',
+        default: false
+      },
+      {
+        type: 'confirm',
         name: 'startCoding',
         message: 'Do you want to start coding right away?',
         default: true
@@ -134,6 +140,15 @@ module.exports = class extends Generator {
       {
         installJquery: this.answers.installJquery,
         gaEnabled: this.answers.gaEnabled,
+        gaTrackingID: this.answers.gaTrackingID,
+        useImprint: this.answers.useImprint
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('impressum.html'),
+      this.destinationPath(path.join('src', 'pages', 'impressum.html')),
+      {
+        gaEnabled: this.answers.gaEnabled,
         gaTrackingID: this.answers.gaTrackingID
       }
     );
@@ -151,6 +166,13 @@ module.exports = class extends Generator {
       {
         installJquery: this.answers.installJquery,
         gaEnabled: this.answers.gaEnabled
+      }
+    );
+    this.fs.copyTpl(
+      this.templatePath('googleAnalytics.ejs'),
+      this.destinationPath(path.join('src', 'js', 'googleAnalytics.js')),
+      {
+        gaTrackingID: this.answers.gaTrackingID
       }
     );
     this.fs.copyTpl(

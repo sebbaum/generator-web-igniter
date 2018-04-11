@@ -8,6 +8,7 @@ const prompts = {
   environment: 'proxy',
   schema: 'http',
   gaEnabled: false,
+  useImprint: true,
   startCoding: false
 };
 
@@ -23,9 +24,11 @@ describe('generator-web-igniter:app', () => {
       '.gitignore',
       'webpack.mix.js',
       'src/js/main.js',
+      'src/js/googleAnalytics.js',
       'src/sass/styles.scss',
       'public/imgs/logo_Pttrn_B.svg',
-      'public/robots.txt'
+      'public/robots.txt',
+      'src/pages/impressum.html'
     ]);
   });
 

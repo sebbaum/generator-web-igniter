@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.8.0
+* integrated a basic robots.txt
+* integrated a optional basic imprint (Impressum) page
+
+## 0.7.0
+* integration of a cookie bar if you choose to use Google Analytics
+
+## 0.6.0
+* integration of laravel-mix-purgecss
+
+## 0.5.0
+* fixed google tag manager integration
+* integrated a dummy link with google analytics link tracking
+
 ## 0.4.0
 * Redesign of frontend boilerplate
 

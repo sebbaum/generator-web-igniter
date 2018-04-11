@@ -1,0 +1,159 @@
+<!-- Doctype HTML5 -->
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+
+  <% if (gaEnabled) { %>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaTrackingID %>"></script>
+  <script src="js/googleAnalytics.js"></script>
+  <% } %>
+
+  <!-- Set character encoding for the document -->
+  <meta charset="utf-8">
+
+  <!-- Instruct Internet Explorer to use its latest rendering engine -->
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Viewport for responsive web design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Meta Description -->
+  <meta name="description" content="Description of the page less than 150 characters">
+
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/x-icon" href="https://example.com/favicon.ico">
+
+  <!-- Recommended favicon format -->
+  <link rel="icon" type="image/png" href="https://example.com/favicon.png">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="/custom-icon.png">
+
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-config" content="browserconfig.xml">
+
+  <!-- Link to your stylesheets -->
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Document Title -->
+  <title>FE-Boilerplate made with ❤ by Sebastian &amp; Marek | Impressum</title>
+
+  <!-- Boilerplate-styles. You can delete this. -->
+  <style>*{font-family:'Helvetica',Arial,sans-serif;margin:0;padding:0;box-sizing:border-box}body{background-color:#2196ce;height:100vh}a,a:visited{color:white;text-decoration:underline}a:hover{text-decoration:none}header{padding:1rem;color:#2196ce;height:100vh;position:fixed;width:80px}main{height:auto;padding:3rem;color:#fff}.imprint{margin-right:auto;max-width:900px}h1{color:#fff;font-size:3rem;text-align:left;margin-bottom:2rem}.imprint div p{margin-bottom:1rem}footer{padding:1rem;color:#fff;height:80px;display:flex;align-items:center;justify-content:center}</style>
+
+</head>
+
+<body>
+
+<!-- Example Structure -->
+
+<!-- This might be your header including the navigation for example -->
+<header>
+
+</header>
+
+<!-- Your page content should go in here -->
+<main>
+
+  <!-- Replace or rebuild all of this content if you want -->
+  <section class="imprint">
+
+    <h1>Impressum</h1>
+
+    <div>
+
+      <p>[COMPANY]<br/>
+        [STREET] [NUMBER]<br/>
+        [ZIP] [CITY], [COUNTRY]
+      </p>
+      <p>Telefon: [PHONE]<br/>
+        Telefax: [FAX]<br/>
+        Email: <a href="mailto:[EMAIL]">[EMAIL]</a>
+      </p>
+      <p>Vertretungsberechtigter Geschäftsführer: [MANAGER]<br/>
+        Registergericht: [LOWER REGIONAL COURT]<br/>
+        Registernummer: [REGISTRATION NUMBER]<br/>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [VAT IDENTIFICATION NUMBER]
+      </p>
+      <h2>Datenschutzerklärung</h2>
+      <p>Alle Daten, die Sie uns übermitteln, werden vertraulich behandelt. [COMPANY] nutzt Ihre Daten ausschließlich mit
+        dem Ziel, das eigene Leistungsangebot anhand Ihrer Bedürfnisse zu optimieren. Wir stellen anderen Ihre Daten
+        grundsätzlich nicht zur Verfügung, es sei denn, Sie haben hierzu Ihr Einverständnis gegeben oder wir sind
+        (beispielsweise aufgrund gerichtlicher Verfügung) zur Preisgabe der Daten verpflichtet.
+      </p>
+      <p>Im Rahmen der geltenden Datenschutzgesetze sind wir um die Sicherheit Ihrer Daten bemüht. Dennoch ist keine
+        elektronische Kommunikation vollkommen sicher. Wir möchten Sie darauf hinweisen, dass trotz unserer hohen
+        Anforderungen Informationen, die Sie freiwillig über das Netz preisgeben, unter Umständen von anderen genutzt
+        werden können. Deshalb übernimmt [COMPANY] für die Offenlegung von Informationen aufgrund von Fehlern bei der
+        Datenübertragung und/ oder unautorisiertem Zugriff durch Dritte keine Verantwortung oder Haftung.
+      </p>
+      <p>Des Weiteren arbeiten wir mit verschiedenen Partnern zusammen, die ihrerseits Internet-Seiten und -Dienste
+        anbieten, die durch unsere Seiten zugänglich sind. Diese Partner haben in der Regel eigene
+        Datenschutzerklärungen und/oder -richtlinien. Wir übernehmen ebenfalls keine Verantwortung oder Haftung für
+        diese mit [COMPANY] nicht im Zusammenhang stehenden Erklärungen und Richtlinien. [COMPANY] behält sich das Recht vor,
+        diese Datenschutzerklärung jederzeit unter Beachtung der geltenden Datenschutzbestimmungen zu ändern.
+      </p>
+      <% if (gaEnabled) { %>
+      <h2>Google Analytics</h2>
+      <p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google“). Google Analytics
+        verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der
+        Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung
+        dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
+      </p>
+      <p>Im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite, wird Ihre IP-Adresse von Google jedoch
+        innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den
+        Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von
+        Google in den USA übertragen und dort gekürzt. Die IP-Anonymisierung ist auf dieser Website aktiv. Im Auftrag
+        des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten,
+        um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der
+        Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen.
+      </p>
+      <p>Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von
+        Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer
+        Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht
+        sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung
+        der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an
+        Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link
+        verfügbare Browser-Plugin herunterladen und installieren: <a
+                href="http://tools.google.com/dlpage/gaoptout?hl=de" title="Opens internal link in current window"
+                target="_blank" class="external-link-new-window">http://tools.google.com/dlpage/gaoptout?hl=de</a>.
+      </p>
+      <p>Die Erfassung durch Google Analytics können Sie außerdem verhindern, indem Sie auf den folgenden Link klicken.</p>
+      <p>
+        <a href="javascript:disableGA()">Google Analytics deaktivieren</a>
+      </p>
+      <p class="opt-out-success" style="display:none;">Google Analytics wurde für sie erfolgreich
+        deaktiviert.</p>
+      <p>Nähere Informationen zu Nutzungsbedingungen und Datenschutz finden Sie unter
+        <a href="http://www.google.com/analytics/terms/de.html"
+           target="_blank">www.google.com/analytics/terms/de.html
+        </a>
+        beziehungsweise unter <a href="https://www.google.de/intl/de/policies/" target="_blank">www.google.de/intl/de/policies/</a>.
+        Wir weisen darauf hin, dass wir Google Analytics auf dieser Website um den Code „anonymize_ip“ erweitert
+        haben, um eine anonymisierte Erfassung von IP-Adressen (sog. IP-Masking) zu gewährleisten.
+      </p>
+      <% } %>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- This is going to be your footer -->
+<footer>
+
+  <p> Made with ❤ in Ober-Ramstadt and Seeheim | <a href="impressum.html">Impressum</a></p>
+
+</footer>
+
+<!-- Your js magic goes here -->
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
