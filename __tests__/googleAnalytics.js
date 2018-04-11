@@ -8,7 +8,7 @@ const prompts = {
   environment: 'local',
   gaEnabled: true,
   gaTrackingID: 'UA-fake-1234',
-  useImprint: true,
+  useImprint: false,
   startCoding: false
 };
 
@@ -19,8 +19,8 @@ describe('generator-web-igniter:app', () => {
 
   it('should contain google analytics', () => {
     assert.fileContent(
-      'src/index.html',
-      "gtag('config', gaProperty, { 'anonymize_ip': true });"
+      'src/js/googleAnalytics.js',
+      "gtag('config', gaProperty, {'anonymize_ip': true});"
     );
   });
 });

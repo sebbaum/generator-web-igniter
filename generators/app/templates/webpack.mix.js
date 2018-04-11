@@ -31,7 +31,8 @@ mix.sass('src/sass/styles.scss', 'public/css')
  Finaly copy index.html file
  */
 mix.js('src/js/main.js', 'public/js')
-  .copy('src/index.html', 'public/index.html');
-
+  .copy('src/index.html', 'public/index.html')
+  .copy('src/js/googleAnalytics.js', 'public/js/googleAnalytics.js')
+  .copy('src/pages', 'public');
 
 mix.browserSync(<%- JSON.stringify(browserSyncConfig) %>);

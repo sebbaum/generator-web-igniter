@@ -8,26 +8,7 @@
     <% if (gaEnabled) { %>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaTrackingID %>"></script>
-    <script>
-
-      const gaId = '<%= gaTrackingID %>';
-
-      let gaProperty = '' + gaId;
-      if (!gaIsEnabled()) {
-        gaProperty = 'disabled-' + gaId;
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', gaProperty, { 'anonymize_ip': true });
-
-      function gaIsEnabled() {
-        return localStorage.getItem('consent') === 'true' || false;
-      }
-
-    </script>
+    <script src="js/googleAnalytics.js"></script>
     <% } %>
 
     <!-- Set character encoding for the document -->
