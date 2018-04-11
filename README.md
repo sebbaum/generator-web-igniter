@@ -24,6 +24,7 @@ yo web-igniter
 * Vanilla JS
 * jquery
 * Google Analytics with cookie bar
+* Basic imprint (Impressum) page
 
 ### Google Analytics and the cookie bar
 Here are some more information on Google Analytics (GA). 
@@ -74,9 +75,17 @@ The look can be edited in `src/sass/styles.scss`
 ```
 For more information about the cookie bar, check [Simple Cookie Consent](https://www.npmjs.com/package/simple-cookie-consent).
 
+## Basic imprint page
+In some countries (Germany for example) it is required to have an imprint page (Impressum) if you run a
+commercial website. Now you can optionally generate a basic imprint page with our generator. You just have to replace 
+the placeholders `[IN UPPER CASE]` in `src/pages/impressum.html with your specific information. Since the imprint is required in Germany, the generated imprint page
+is in german language.
+
+If you also activated Google Analytics there is a special section about Google Analytics and oup-out links integrated
+in the generated imprint.
+
 ## Roadmap
 * Integration of frontend frameworks
-* Integratino of javascript frameworks
 
 ## License
 Apache-2.0 © [Sebastian Baum](http://www.sebbaum.de)
