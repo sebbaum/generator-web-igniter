@@ -8,6 +8,7 @@ const prompts = {
   environment: 'proxy',
   schema: 'http',
   gaEnabled: false,
+  useImprint: true,
   startCoding: false
 };
 

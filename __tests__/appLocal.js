@@ -7,6 +7,7 @@ const prompts = {
   name: 'webapp',
   environment: 'local',
   gaEnabled: false,
+  useImprint: true,
   startCoding: false
 };
 

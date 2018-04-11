@@ -8,6 +8,7 @@ const prompts = {
   environment: 'local',
   gaEnabled: true,
   gaTrackingID: 'UA-fake-1234',
+  useImprint: true,
   startCoding: false
 };
 

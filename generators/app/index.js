@@ -74,6 +74,12 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
+        name: 'useImprint',
+        message: 'Do you want to generate a basic imprint (Impressum)?',
+        default: true
+      },
+      {
+        type: 'confirm',
         name: 'startCoding',
         message: 'Do you want to start coding right away?',
         default: true
@@ -134,7 +140,8 @@ module.exports = class extends Generator {
       {
         installJquery: this.answers.installJquery,
         gaEnabled: this.answers.gaEnabled,
-        gaTrackingID: this.answers.gaTrackingID
+        gaTrackingID: this.answers.gaTrackingID,
+        useImprint: this.answers.useImprint
       }
     );
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
