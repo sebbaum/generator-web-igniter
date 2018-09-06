@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.0
+* Fixed npm security vulnerabilities 
+* Integrated an empty libs folder for downloaded JS libs.
+* Libs folder is copied to public folder by webpack.
+
 ## 0.8.0
 * integrated a basic robots.txt
 * integrated a optional basic imprint (Impressum) page

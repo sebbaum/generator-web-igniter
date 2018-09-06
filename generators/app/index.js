@@ -133,6 +133,7 @@ module.exports = class extends Generator {
     let browserSyncConfig =
       this.answers.environment === 'proxy' ? proxyHostConfig : localHostConfig;
 
+    this.fs.write('src/js/libs/.gitkeep', '');
     this.fs.write('package.json', JSON.stringify(packageJson));
     this.fs.copyTpl(
       this.templatePath('index.html'),

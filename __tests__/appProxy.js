@@ -28,7 +28,8 @@ describe('generator-web-igniter:app', () => {
       'src/sass/styles.scss',
       'public/imgs/logo_Pttrn_B.svg',
       'public/robots.txt',
-      'src/pages/impressum.html'
+      'src/pages/impressum.html',
+      'src/js/libs/.gitkeep'
     ]);
   });
 
