@@ -9,7 +9,8 @@ const prompts = {
   schema: 'http',
   gaEnabled: false,
   useImprint: true,
-  startCoding: false
+  startCoding: false,
+  localGit: false
 };
 
 describe('generator-web-igniter:app', () => {
@@ -31,6 +32,7 @@ describe('generator-web-igniter:app', () => {
       'src/pages/impressum.html',
       'src/js/libs/.gitkeep'
     ]);
+    assert.noFile('.git/config');
   });
 
   it('should contain values in package.json', () => {

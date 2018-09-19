@@ -9,7 +9,8 @@ const prompts = {
   gaEnabled: true,
   gaTrackingID: 'UA-fake-1234',
   useImprint: false,
-  startCoding: false
+  startCoding: false,
+  localGit: false
 };
 
 describe('generator-web-igniter:app', () => {

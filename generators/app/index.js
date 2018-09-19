@@ -83,6 +83,12 @@ module.exports = class extends Generator {
         name: 'startCoding',
         message: 'Do you want to start coding right away?',
         default: true
+      },
+      {
+        type: 'confirm',
+        name: 'localGit',
+        message: 'Do you want to init a local git repository?',
+        default: true
       }
     ];
 
@@ -209,6 +215,15 @@ module.exports = class extends Generator {
   end() {
     if (this.answers.startCoding) {
       this.spawnCommandSync('npm', ['run', 'watch']);
+    }
+    if (this.answers.localGit) {
+      this.spawnCommandSync('git', ['init']);
+      this.spawnCommandSync('git', ['add', '.']);
+      this.spawnCommandSync('git', [
+        'commit',
+        '-m',
+        'Initial commit by yeoman web-igniter generator'
+      ]);
     }
   }
 };
