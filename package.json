@@ -1,6 +1,6 @@
 {
   "name": "generator-web-igniter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A yeoman generator to kickstart your frontend development.",
   "homepage": "https://github.com/sebbaum/generator-web-igniter",
   "author": {
