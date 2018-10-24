@@ -80,14 +80,14 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'startCoding',
-        message: 'Do you want to start coding right away?',
+        name: 'localGit',
+        message: 'Do you want to init a local git repository?',
         default: true
       },
       {
         type: 'confirm',
-        name: 'localGit',
-        message: 'Do you want to init a local git repository?',
+        name: 'startCoding',
+        message: 'Do you want to start coding right away?',
         default: true
       }
     ];
@@ -140,7 +140,7 @@ module.exports = class extends Generator {
       this.answers.environment === 'proxy' ? proxyHostConfig : localHostConfig;
 
     this.fs.write('src/js/libs/.gitkeep', '');
-    this.fs.write('package.json', JSON.stringify(packageJson));
+    this.fs.write('package.json', JSON.stringify(packageJson, null, 2));
     this.fs.copyTpl(
       this.templatePath('index.html'),
       this.destinationPath(path.join('src', 'index.html')),
