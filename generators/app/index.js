@@ -151,14 +151,16 @@ module.exports = class extends Generator {
         useImprint: this.answers.useImprint
       }
     );
-    this.fs.copyTpl(
-      this.templatePath('impressum.html'),
-      this.destinationPath(path.join('src', 'pages', 'impressum.html')),
-      {
-        gaEnabled: this.answers.gaEnabled,
-        gaTrackingID: this.answers.gaTrackingID
-      }
-    );
+    if (this.answers.useImprint) {
+      this.fs.copyTpl(
+        this.templatePath('impressum.html'),
+        this.destinationPath(path.join('src', 'pages', 'impressum.html')),
+        {
+          gaEnabled: this.answers.gaEnabled,
+          gaTrackingID: this.answers.gaTrackingID
+        }
+      );
+    }
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
