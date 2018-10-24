@@ -36,4 +36,4 @@ mix.js('src/js/main.js', 'public/js')
   .copy('src/pages', 'public')
   .copy('src/js/libs', 'public/js/libs');
 
-mix.browserSync(<%- JSON.stringify(browserSyncConfig) %>);
+mix.browserSync(<%- JSON.stringify(browserSyncConfig, null, 2) %>);
