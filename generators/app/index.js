@@ -35,12 +35,12 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'environment',
         message: 'Where do you develop your website?',
-        choices: ['local', 'proxy'],
+        choices: ['local', 'virtual machine'],
         default: 'local'
       },
       {
         when: answers => {
-          return answers.environment === 'proxy';
+          return answers.environment === 'virtual machine';
         },
         type: 'list',
         name: 'schema',
@@ -137,9 +137,10 @@ module.exports = class extends Generator {
     };
 
     let browserSyncConfig =
-      this.answers.environment === 'proxy' ? proxyHostConfig : localHostConfig;
+      this.answers.environment === 'virtual machine' ? proxyHostConfig : localHostConfig;
 
     this.fs.write('src/js/libs/.gitkeep', '');
+    this.fs.write('src/pages/.gitkeep', '');
     this.fs.write('package.json', JSON.stringify(packageJson, null, 2));
     this.fs.copyTpl(
       this.templatePath('index.html'),
@@ -200,7 +201,6 @@ module.exports = class extends Generator {
       this.destinationPath(path.join('public', 'robots.txt'))
     );
   }
-
   install() {
     this.npmInstall(npmDevDependencies, { 'save-dev': true });
     if (this.answers.installJquery) {
@@ -213,7 +213,6 @@ module.exports = class extends Generator {
 
     this.installDependencies({ bower: false });
   }
-
   end() {
     if (this.answers.startCoding) {
       this.spawnCommandSync('npm', ['run', 'watch']);
