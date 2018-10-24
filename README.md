@@ -84,9 +84,6 @@ is in german language.
 If you also activated Google Analytics there is a special section about Google Analytics and oup-out links integrated
 in the generated imprint.
 
-## Roadmap
-* Integration of frontend frameworks
-
 ## Credits
 * [Sebastian Baum](https://github.com/sebbaum)
 * [Marek Gebka](https://github.com/marekgebka)
