@@ -1,6 +1,6 @@
 {
   "name": "generator-web-igniter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A yeoman generator to kickstart your frontend development.",
   "homepage": "https://github.com/sebbaum/generator-web-igniter",
   "author": {
@@ -39,19 +39,19 @@
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.10.0",
     "eslint-config-xo": "^0.18.2",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^2.7.0",
     "husky": "^0.14.3",
     "jest": "^21.0.0",
     "jest-cli": "^21.0.0",
     "lint-staged": "^4.2.1",
-    "nsp": "^2.6.3",
-    "prettier": "^1.14.2",
+    "nsp": "^3.2.1",
+    "prettier": "^1.14.3",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^2.0.5"
   },
