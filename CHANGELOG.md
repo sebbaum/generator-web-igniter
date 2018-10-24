@@ -1,4 +1,10 @@
 # CHANGELOG
+
+## 1.2.0
+* Minor improvements and bug fixes
+* Imprint is only created if answered with 'yes'
+* Ignoring more generated files
+
 ## 1.1.0
 * Optional initialization of a local Git repository
 
