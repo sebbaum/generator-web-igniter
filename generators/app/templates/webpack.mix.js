@@ -28,7 +28,7 @@ mix.sass('src/sass/styles.scss', 'public/css')
 
 /*
  Build and bundle javascript files.
- Finaly copy index.html file
+ Finally copy index.html file
  */
 mix.js('src/js/main.js', 'public/js')
   .copy('src/index.html', 'public/index.html')
