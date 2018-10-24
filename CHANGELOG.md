@@ -1,4 +1,6 @@
 # CHANGELOG
+## 1.1.0
+* Optional initialization of a local Git repository
 
 ## 1.0.0
 * Fixed npm security vulnerabilities 

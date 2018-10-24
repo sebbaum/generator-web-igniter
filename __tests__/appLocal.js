@@ -8,7 +8,8 @@ const prompts = {
   environment: 'local',
   gaEnabled: false,
   useImprint: true,
-  startCoding: false
+  startCoding: false,
+  localGit: true
 };
 
 describe('generator-web-igniter:app', () => {
@@ -28,7 +29,8 @@ describe('generator-web-igniter:app', () => {
       'public/imgs/logo_Pttrn_B.svg',
       'public/robots.txt',
       'src/pages/impressum.html',
-      'src/js/libs/.gitkeep'
+      'src/js/libs/.gitkeep',
+      '.git/config'
     ]);
   });
 
