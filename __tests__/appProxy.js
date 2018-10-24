@@ -36,7 +36,7 @@ describe('generator-web-igniter:app', () => {
   });
 
   it('should contain values in package.json', () => {
-    assert.fileContent('package.json', /"name":"webapp"/);
+    assert.fileContent('package.json', / {2}"name": "webapp",/);
   });
 
   it('should contain broxy browserSync config with https', () => {
