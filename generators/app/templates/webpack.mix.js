@@ -28,7 +28,7 @@ mix.sass('src/sass/styles.scss', 'public/css')
 
 /*
  Build and bundle javascript files.
- Finaly copy index.html file
+ Finally copy index.html file
  */
 mix.js('src/js/main.js', 'public/js')
   .copy('src/index.html', 'public/index.html')
@@ -36,4 +36,4 @@ mix.js('src/js/main.js', 'public/js')
   .copy('src/pages', 'public')
   .copy('src/js/libs', 'public/js/libs');
 
-mix.browserSync(<%- JSON.stringify(browserSyncConfig) %>);
+mix.browserSync(<%- JSON.stringify(browserSyncConfig, null, 2) %>);
