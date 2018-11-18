@@ -5,7 +5,7 @@ const assert = require('yeoman-assert');
 
 const prompts = {
   name: 'webapp',
-  environment: 'proxy',
+  environment: 'virtual machine',
   schema: 'http',
   gaEnabled: false,
   useImprint: true,
@@ -36,13 +36,25 @@ describe('generator-web-igniter:app', () => {
   });
 
   it('should contain values in package.json', () => {
-    assert.fileContent('package.json', /"name":"webapp"/);
+    assert.fileContent('package.json', / {2}"name": "webapp",/);
   });
 
   it('should contain broxy browserSync config with https', () => {
     assert.fileContent(
       'webpack.mix.js',
-      '{"proxy":"http://localhost","host":"dev.host","files":["public/js/**/*.js","public/css/**/*.css","public/*.html"],"open":false,"watchOptions":{"usePolling":true}}'
+      'mix.browserSync({\n' +
+        '  "proxy": "http://localhost",\n' +
+        '  "host": "dev.host",\n' +
+        '  "files": [\n' +
+        '    "public/js/**/*.js",\n' +
+        '    "public/css/**/*.css",\n' +
+        '    "public/*.html"\n' +
+        '  ],\n' +
+        '  "open": false,\n' +
+        '  "watchOptions": {\n' +
+        '    "usePolling": true\n' +
+        '  }\n' +
+        '});'
     );
   });
 });

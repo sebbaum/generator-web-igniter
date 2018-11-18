@@ -84,8 +84,10 @@ is in german language.
 If you also activated Google Analytics there is a special section about Google Analytics and oup-out links integrated
 in the generated imprint.
 
-## Roadmap
-* Integration of frontend frameworks
+## Credits
+* [Sebastian Baum](https://github.com/sebbaum)
+* [Marek Gebka](https://github.com/marekgebka)
+* [All Contributors](https://github.com/sebbaum/generator-web-igniter/graphs/contributors)
 
 ## License
 Apache-2.0 © [Sebastian Baum](http://www.sebbaum.de)

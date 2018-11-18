@@ -35,12 +35,12 @@ module.exports = class extends Generator {
         type: 'list',
         name: 'environment',
         message: 'Where do you develop your website?',
-        choices: ['local', 'proxy'],
+        choices: ['local', 'virtual machine'],
         default: 'local'
       },
       {
         when: answers => {
-          return answers.environment === 'proxy';
+          return answers.environment === 'virtual machine';
         },
         type: 'list',
         name: 'schema',
@@ -80,14 +80,14 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'startCoding',
-        message: 'Do you want to start coding right away?',
+        name: 'localGit',
+        message: 'Do you want to init a local git repository?',
         default: true
       },
       {
         type: 'confirm',
-        name: 'localGit',
-        message: 'Do you want to init a local git repository?',
+        name: 'startCoding',
+        message: 'Do you want to start coding right away?',
         default: true
       }
     ];
@@ -137,10 +137,11 @@ module.exports = class extends Generator {
     };
 
     let browserSyncConfig =
-      this.answers.environment === 'proxy' ? proxyHostConfig : localHostConfig;
+      this.answers.environment === 'virtual machine' ? proxyHostConfig : localHostConfig;
 
     this.fs.write('src/js/libs/.gitkeep', '');
-    this.fs.write('package.json', JSON.stringify(packageJson));
+    this.fs.write('src/pages/.gitkeep', '');
+    this.fs.write('package.json', JSON.stringify(packageJson, null, 2));
     this.fs.copyTpl(
       this.templatePath('index.html'),
       this.destinationPath(path.join('src', 'index.html')),
@@ -151,14 +152,16 @@ module.exports = class extends Generator {
         useImprint: this.answers.useImprint
       }
     );
-    this.fs.copyTpl(
-      this.templatePath('impressum.html'),
-      this.destinationPath(path.join('src', 'pages', 'impressum.html')),
-      {
-        gaEnabled: this.answers.gaEnabled,
-        gaTrackingID: this.answers.gaTrackingID
-      }
-    );
+    if (this.answers.useImprint) {
+      this.fs.copyTpl(
+        this.templatePath('impressum.html'),
+        this.destinationPath(path.join('src', 'pages', 'impressum.html')),
+        {
+          gaEnabled: this.answers.gaEnabled,
+          gaTrackingID: this.answers.gaTrackingID
+        }
+      );
+    }
     this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
     this.fs.copyTpl(
       this.templatePath('webpack.mix.js'),
@@ -198,7 +201,6 @@ module.exports = class extends Generator {
       this.destinationPath(path.join('public', 'robots.txt'))
     );
   }
-
   install() {
     this.npmInstall(npmDevDependencies, { 'save-dev': true });
     if (this.answers.installJquery) {
@@ -211,7 +213,6 @@ module.exports = class extends Generator {
 
     this.installDependencies({ bower: false });
   }
-
   end() {
     if (this.answers.startCoding) {
       this.spawnCommandSync('npm', ['run', 'watch']);
